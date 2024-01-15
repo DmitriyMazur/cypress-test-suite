@@ -27,26 +27,26 @@
 Cypress.Commands.add('visitHomePage', () => {
     // Use the base URL from the Cypress configuration
     const baseUrl = Cypress.config('baseUrl');
-  
+
     // Visit the home page by appending the path to the base URL
     cy.visit(baseUrl);
-  
-    // Optionally, you can add assertions to check the URL and title
+
+    // Adding assertions to check the URL and title
     cy.url().should('eq', `${baseUrl}/`);
     cy.title().should('eq', 'JavaScript Component Testing and E2E Testing Framework | Cypress');
-  });
-  
+});
 
-  Cypress.Commands.add('assertValueCopiedToClipboard', value => {
+
+Cypress.Commands.add('assertValueCopiedToClipboard', value => {
     cy.window().then(win => {
-      return new Cypress.Promise((resolve, reject) => {
-        win.navigator.clipboard.readText().then(text => {
-          if (text === value) {
-            resolve();
-          } else {
-            reject(`Expected clipboard value: ${value}, Actual clipboard value: ${text}`);
-          }
+        return new Cypress.Promise((resolve, reject) => {
+            win.navigator.clipboard.readText().then(text => {
+                if (text === value) {
+                    resolve();
+                } else {
+                    reject(`Expected clipboard value: ${value}, Actual clipboard value: ${text}`);
+                }
+            });
         });
-      });
     });
-  });
+});
