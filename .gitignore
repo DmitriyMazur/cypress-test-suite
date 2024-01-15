@@ -1,0 +1,14 @@
+# Node.js
+node_modules/
+
+# Cypress generated files
+/cypress/videos/
+/cypress/screenshots/
+
+# Mochawesome reports
+/mochawesome-report/
+
+
+# Local development files
+.env
+.DS_Store
